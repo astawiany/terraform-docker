@@ -1,9 +1,4 @@
-# output "ip-address" {
-#   value = flatten(module.container[*].ip-address)
-#   description = "IP addresses and the external ports of the containers"
-# }
-
-# output "container-name" {
-#   value = module.container[*].container-name
-#   description = "Names of the containers"
-# }
+output "application_access" {
+  value = [for x in module.container[*]: x]
+  description = "The name and socker for each application"
+}
